@@ -31,7 +31,7 @@
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form action='/plot' method='POST' class="contact100-form validate-form">
+			<form action='./plot' method='POST' class="contact100-form validate-form">
 			{% csrf_token %}
 				<span class="contact100-form-title">
 					Know Your Share
@@ -39,20 +39,20 @@
 
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
 					<span class="label-input100">Start Date</span>
-					<input class="input100" type="date" name="start_date" placeholder="Enter Start Date">
+					<input class="input100" type="date" name="name" placeholder="Enter Start Date">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<span class="label-input100">End Date</span>
-					<input class="input100" type="date" name="end_date" placeholder="Enter End Date">
+					<input class="input100" type="date" name="email" placeholder="Enter End Date">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 input100-select">
 					<span class="label-input100">Symbols</span>
 					<div>
-						<select class="selection-2" name="symbol">
+						<select class="selection-2" name="service">
 							<option>ACC</option>
 							<option>ADANIPORTS</option>
 							<option>AMBUJACEM</option>
