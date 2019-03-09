@@ -15,7 +15,7 @@ def plot(request):
     sym=request.POST['service']
     chart=request.POST['plot']
     df = get_history(symbol=sym,start=date(int(st[:4]),int(st[5:7]),int(st[8:])),end=date(int(en[:4]),int(en[5:7]),int(en[8:])))
-    if chart=='Candel Chart':
+    if chart=='OHLC':
         
         trace = go.Ohlc(x=df.index,
                     open=df['Open'],
@@ -26,7 +26,7 @@ def plot(request):
         layout = {'title': sym+' Plot','yaxis': {'title': sym},}
         fig = dict(data=data, layout=layout)
         py.offline.plot(fig, filename='simple_candlestick')
-    elif chart=='Time Series':
+    elif chart=='Time Series for Trade':
         trace_low = go.Scatter(
                 x=df.index,
                 y=df['Trades'],
@@ -40,6 +40,19 @@ def plot(request):
 
         fig = dict(data=data, layout=layout)
         py.offline.plot(fig, filename='simple_candlestick')
+
+    elif chart=='Candel Stick':
+        
+        trace = go.Candlestick(x=df.index,
+                    open=df['Open'],
+                    high=df['High'],
+                    low=df['Low'],
+                    close=df['Close'])
+        data = [trace]
+        layout = {'title': sym+' Plot','yaxis': {'title': sym},}
+        fig = dict(data=data, layout=layout)
+        py.offline.plot(fig, filename='simple_candlestick')
+    
         
 
     return HttpResponse('<h1>Thank You</h1>')
