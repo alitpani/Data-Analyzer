@@ -25,11 +25,93 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
 <!--===============================================================================================-->
+<style>
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.left {
+  left: 0;
+ 
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  
+}
+</style>
 </head>
 <body>
+<div class="container-contact100">
+
+	<div class="split left">
+  <div class="centered">
+    
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Log In
+				</span>
+
+				<div class="wrap-input100 validate-input" >
+					<span class="label-input100">User Name</span>
+					<input class="input100" type="text" name="uname" placeholder="Enter User Name">
+					<span class="focus-input100"></span>
+				</div>
+<br>
+				<div class="wrap-input100 validate-input" >
+					<span class="label-input100">Password</span>
+					<input class="input100" type="password" name="pass" placeholder="Enter Password">
+					<span class="focus-input100"></span>
+				</div>
+
+	<br>			
+
+				
+	<br>			<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+				<div class="text-center w-full p-t-115">
+						<span class="txt1">
+							Not a member?
+						</span>
+
+						<a class="txt1 bo1 hov1" href="#">
+							Sign up now							
+						</a>
+					</div>
+			</form>
+		</div>
+	</div>
+
+  </div>
 
 
-	<div class="container-contact100">
+<div class="split right">
+  <div class="centered">
+    
 		<div class="wrap-contact100">
 			<form action='./plot' method='POST' class="contact100-form validate-form">
 			{% csrf_token %}
@@ -135,6 +217,8 @@
 		</div>
 	</div>
 
+  </div>
+</div>
 
 
 	<div id="dropDownSelect1"></div>
